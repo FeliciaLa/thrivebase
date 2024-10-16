@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thrivebase</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="thrivebase.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Thrivebase</h1>
+    </header>
+
+    <!-- Explanation Section -->
+    <section class="explanation">
+        <p>Thrivebase is your go-to platform for personal growth. We curate the best self-development resources to help you thrive in life and achieve your goals.</p>
+        <p>Explore various topics like productivity, mindfulness, mental health, and more by clicking through our curated lists below!</p>
+    </section>
+
+    <!-- Carousel Section -->
+    <div class="carousel-container">
+        <button class="arrow left-arrow" onclick="moveCarousel(-1)">&#10094;</button>
+        <div class="carousel" id="carousel">
+            <!-- Carousel Items with Clickable Links -->
+            <div class="carousel-item">
+                <a href="https://example.com/productivity-resources">
+                    <img src="https://via.placeholder.com/300x200.png?text=List+1" alt="Productivity Resources">
+                    <h3>Productivity Resources</h3>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="https://example.com/mental-health-resources">
+                    <img src="https://via.placeholder.com/300x200.png?text=List+2" alt="Mental Health Resources">
+                    <h3>Mental Health Resources</h3>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="https://example.com/mindfulness-resources">
+                    <img src="https://via.placeholder.com/300x200.png?text=List+3" alt="Mindfulness Resources">
+                    <h3>Mindfulness Resources</h3>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="https://example.com/leadership-resources">
+                    <img src="https://via.placeholder.com/300x200.png?text=List+4" alt="Leadership Resources">
+                    <h3>Leadership Resources</h3>
+                </a>
+            </div>
+            <div class="carousel-item">
+                <a href="https://example.com/confidence-building-resources">
+                    <img src="https://via.placeholder.com/300x200.png?text=List+5" alt="Confidence Building">
+                    <h3>Confidence Building</h3>
+                </a>
+            </div>
+        </div>
+        <button class="arrow right-arrow" onclick="moveCarousel(1)">&#10095;</button>
+    </div>
+
+    <!-- JavaScript for Carousel -->
+    <script>
+        const carousel = document.getElementById('carousel');
+        let scrollPosition = 0;
+
+        function moveCarousel(direction) {
+            const itemWidth = 320; // width of each carousel item including margin
+            const maxScrollPosition = -(carousel.children.length - 3) * itemWidth; // Only allow scrolling if there are more than 3 items
+
+            scrollPosition += direction * itemWidth;
+
+            // Ensure scroll position stays within bounds
+            if (scrollPosition > 0) {
+                scrollPosition = 0;
+            } else if (scrollPosition < maxScrollPosition) {
+                scrollPosition = maxScrollPosition;
+            }
+
+            carousel.style.transform = `translateX(${scrollPosition}px)`;
+        }
+    </script>
+
+</body>
+</html>
