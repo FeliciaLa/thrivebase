@@ -14,8 +14,8 @@ body {
 header {
     background-color: #4CAF50; /* Keeping the original green color */
     color: white;
-    padding: 10px 0; /* Reduced padding for a tighter layout */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
@@ -28,11 +28,11 @@ header {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Padding for content spacing */
+    padding: 0 20px;
 }
 
 .logo {
-    height: 60px; /* Reduced height for a sleeker appearance */
+    height: 60px;
     width: auto;
 }
 
@@ -41,7 +41,7 @@ header {
     display: flex;
     margin: 0;
     padding: 0;
-    gap: 20px; /* Space between menu items */
+    gap: 20px;
 }
 
 .nav-menu a {
@@ -53,12 +53,12 @@ header {
 }
 
 .nav-menu a:hover {
-    color: #ddd; /* Light gray for hover effect */
+    color: #ddd;
 }
 
 .header-actions .cta-button {
-    background-color: white; /* White background for call-to-action button */
-    color: #4CAF50; /* Original green for button text */
+    background-color: white;
+    color: #4CAF50;
     padding: 10px 20px;
     border-radius: 20px;
     text-decoration: none;
@@ -68,7 +68,7 @@ header {
 }
 
 .header-actions .cta-button:hover {
-    background-color: #ddd; /* Light gray on hover */
+    background-color: #ddd;
 }
 
 /* Make header responsive */
@@ -88,7 +88,6 @@ header {
         margin-top: 10px;
     }
 }
-
 
 /* Explanation section */
 .explanation {
@@ -154,7 +153,7 @@ header {
     height: 80px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #4caf50;
+    border: 3px solid #4CAF50;
 }
 
 /* List content */
@@ -275,6 +274,9 @@ footer {
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: auto;
 }
 
 .masonry-item:hover {
@@ -283,38 +285,55 @@ footer {
 
 /* Resource Card */
 .resource-card {
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    justify-content: space-between;
+    height: 350px; /* Set a fixed height to ensure alignment */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
+/* Title, Format, and Description Styles */
 .resource-title {
     font-size: 1.4em;
     color: #004d40;
     margin: 0;
+    line-height: 1.2;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .resource-format {
     font-size: 0.9em;
     color: #00796b;
     font-weight: bold;
+    margin: 5px 0;
 }
 
 .resource-description {
     font-size: 1em;
     color: #333;
     margin: 10px 0;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Show up to 3 lines */
+    -webkit-box-orient: vertical;
 }
 
 .resource-benefit {
     font-size: 0.9em;
     color: #666;
+    margin-bottom: 15px;
+    line-height: 1.4;
 }
 
+/* Button */
 .resource-link {
-    margin-top: auto;
-    display: inline-block;
+    display: block;
+    margin-top: auto; /* Ensures button aligns at the bottom */
     padding: 10px 15px;
     background-color: #4CAF50;
     color: white;
@@ -322,20 +341,28 @@ footer {
     border-radius: 5px;
     text-align: center;
     transition: background-color 0.3s;
+    font-weight: bold;
 }
 
 .resource-link:hover {
     background-color: #388e3c;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .masonry-container {
-        grid-template-columns: 1fr; /* Stacks items on smaller screens */
-    }
-
-    .resource-card {
-        padding: 15px;
-    }
+/* Back Button Styles */
+.back-button {
+    display: inline-block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
+.back-button:hover {
+    background-color: #388e3c;
+}
