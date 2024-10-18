@@ -51,13 +51,16 @@ header h1 {
 .carousel {
     display: flex;
     transition: transform 0.3s ease;
+    padding: 0; /* Ensure no padding hides the first item */
+    margin-left: 0; /* Make sure margin doesn’t hide the first item */
 }
 
 /* Carousel item */
 .carousel-item {
     min-width: 300px;
-    margin: 0 10px;
+    margin: 0 10px; /* Adjust this if needed for spacing */
     text-align: center;
+    box-sizing: border-box; /* Makes padding/margins count within the width */
 }
 
 .carousel-item img {
@@ -82,7 +85,7 @@ header h1 {
     padding: 15px;
     cursor: pointer;
     font-size: 2em;
-    z-index: 1000; /* Ensures arrows are above other elements */
+    z-index: 1000;
     border-radius: 50%;
     display: flex;
     align-items: center;
