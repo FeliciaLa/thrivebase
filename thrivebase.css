@@ -5,162 +5,208 @@ body {
     padding: 0;
     background-color: #f9f9f9;
     display: flex;
-    flex-direction: column; /* Make the body a column flex container */
-    min-height: 100vh; /* Ensure it fills the full height of the viewport */
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 80px; 
 }
 
 /* Header styles */
 header {
-    background-color: #4CAF50; /* Header background color */
-    color: white; /* Header text color */
-    text-align: center; /* Center the header text */
-    padding: 20px; /* Padding around the header */
-    width: 100%; /* Ensures header fills full width */
+    background-color: #4CAF50; /* Keeping the original green color */
+    color: white;
+    padding: 10px 0; /* Reduced padding for a tighter layout */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
 .header-content {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-between; /* Space between elements */
-    align-items: center; /* Center items vertically */
-    max-width: 1200px; /* Center the header content */
-    margin: 0 auto; /* Center the content horizontally */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Padding for content spacing */
 }
 
 .logo {
-    height: 60px; /* Increased height for a larger logo */
-    width: auto; /* Maintain aspect ratio */
-    margin: 0; /* Remove default margin */
+    height: 60px; /* Reduced height for a sleeker appearance */
+    width: auto;
 }
 
 .nav-menu ul {
-    list-style: none; /* Remove bullet points */
-    display: flex; /* Use flexbox for horizontal layout */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-}
-
-.nav-menu li {
-    margin: 0 15px; /* Space between menu items */
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 20px; /* Space between menu items */
 }
 
 .nav-menu a {
-    color: white; /* Link color */
-    text-decoration: none; /* Remove underline */
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1em;
+    transition: color 0.3s;
 }
 
 .nav-menu a:hover {
-    text-decoration: underline; /* Underline on hover */
+    color: #ddd; /* Light gray for hover effect */
 }
 
 .header-actions .cta-button {
-    background-color: white; /* Button background color */
-    color: #4CAF50; /* Button text color */
-    padding: 10px 20px; /* Button padding */
-    border-radius: 5px; /* Rounded corners */
-    text-decoration: none; /* Remove underline */
+    background-color: white; /* White background for call-to-action button */
+    color: #4CAF50; /* Original green for button text */
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
 .header-actions .cta-button:hover {
     background-color: #ddd; /* Light gray on hover */
 }
 
+/* Make header responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .header-actions {
+        margin-top: 10px;
+    }
+}
+
+
 /* Explanation section */
 .explanation {
     text-align: center;
-    margin: 20px auto; /* Center the explanation */
-    padding: 0 5%; /* Adjusted padding for better spacing */
+    margin: 20px auto;
+    padding: 0 5%;
     font-size: 1.2em;
     color: #333;
-    flex: 1; /* Allow this section to grow and fill space */
+    flex: 1;
 }
 
 .explanation p {
     margin-bottom: 15px;
 }
 
-/* Carousel container */
-.carousel-container {
+/* Grid container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Grid item */
+.grid-item {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 40px auto; /* Space above and below the carousel */
-    position: relative;
-    width: 100%; /* Set to 100% to fill the full width */
-    max-width: 1200px; /* Optional: set a max width for larger screens */
-    overflow: hidden;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Carousel */
-.carousel {
+/* List item styles */
+.list-item {
     display: flex;
-    transition: transform 0.5s ease;
-    padding: 0;
-    margin-left: 0;
-}
-
-/* Carousel item */
-.carousel-item {
-    min-width: 300px; /* Keep this wide enough for visibility */
-    margin: 0 10px; /* Increased margin for better spacing */
-    text-align: center;
-    box-sizing: border-box; /* Ensures that padding/margins count within width */
-}
-
-.carousel-item img {
+    flex-direction: column;
+    align-items: center;
+    background-color: #e0f7fa;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 350px;
+    justify-content: space-between;
     transition: transform 0.3s;
 }
 
-.carousel-item img:hover {
-    transform: scale(1.05);
+.list-item:hover {
+    transform: scale(1.02);
 }
 
-/* Arrow styles */
-.arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    font-size: 2em;
-    z-index: 1000;
-    border-radius: 50%;
+/* Image container */
+.list-image-container {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.list-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #4caf50;
+}
+
+/* List content */
+.list-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 1;
+}
+
+.list-content h3 {
+    margin: 10px 0;
+    font-size: 1.4em;
+    color: #004d40;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.list-content p {
+    font-size: 0.9em;
+    color: #00796b;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+/* Button for each list item */
+.list-button {
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     transition: background-color 0.3s;
+    font-weight: bold;
+    margin-top: auto;
 }
 
-/* Left arrow positioning */
-.left-arrow {
-    left: 10px;
-}
-
-/* Right arrow positioning */
-.right-arrow {
-    right: 10px;
-}
-
-/* Hover effect for arrows */
-.arrow:hover {
-    background-color: rgba(0, 0, 0, 0.9);
+.list-button:hover {
+    background-color: #388e3c;
 }
 
 /* Footer styles */
 footer {
-    background-color: #4CAF50; /* Match with header color */
+    background-color: #4CAF50;
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: auto; /* Pushes footer to the bottom */
+    margin-top: auto;
 }
 
 .footer-content {
@@ -185,7 +231,7 @@ footer {
 }
 
 .footer-links a:hover {
-    text-decoration: underline; /* Optional hover effect */
+    text-decoration: underline;
 }
 
 .social-media {
@@ -197,9 +243,99 @@ footer {
     margin: 0 10px;
 }
 
-/* Media Queries for Responsiveness (Optional) */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .carousel-item {
-        min-width: 200px; /* Adjust for smaller screens */
+    .list-item {
+        height: auto;
+    }
+
+    .list-content h3 {
+        font-size: 1.2em;
+    }
+
+    .list-content p {
+        -webkit-line-clamp: 2;
     }
 }
+
+/* Masonry Container */
+.masonry-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Masonry Item */
+.masonry-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.masonry-item:hover {
+    transform: scale(1.02);
+}
+
+/* Resource Card */
+.resource-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.resource-title {
+    font-size: 1.4em;
+    color: #004d40;
+    margin: 0;
+}
+
+.resource-format {
+    font-size: 0.9em;
+    color: #00796b;
+    font-weight: bold;
+}
+
+.resource-description {
+    font-size: 1em;
+    color: #333;
+    margin: 10px 0;
+}
+
+.resource-benefit {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.resource-link {
+    margin-top: auto;
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.resource-link:hover {
+    background-color: #388e3c;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .masonry-container {
+        grid-template-columns: 1fr; /* Stacks items on smaller screens */
+    }
+
+    .resource-card {
+        padding: 15px;
+    }
+}
+
