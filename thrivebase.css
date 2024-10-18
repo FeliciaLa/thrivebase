@@ -12,6 +12,7 @@ header {
     color: white;
     text-align: center;
     padding: 20px;
+    width: 100%; /* Ensures header fills full width */
 }
 
 header h1 {
@@ -23,7 +24,7 @@ header h1 {
 .explanation {
     text-align: center;
     margin: 20px;
-    padding: 0 10%;
+    padding: 0 5%; /* Adjusted padding for better spacing */
     font-size: 1.2em;
     color: #333;
 }
@@ -39,8 +40,8 @@ header h1 {
     align-items: center;
     margin: 40px auto;
     position: relative;
-    width: 80%;
-    max-width: 1000px;
+    width: 100%; /* Set to 100% to fill the full width */
+    max-width: 1200px; /* Optional: set a max width for larger screens */
     overflow: hidden;
     background-color: #f0f0f0;
     border-radius: 10px;
@@ -57,8 +58,8 @@ header h1 {
 
 /* Carousel item */
 .carousel-item {
-    min-width: 280px; /* Adjusted width for better fit */
-    margin: 0 5px; /* Reduced margin for spacing */
+    min-width: 300px; /* Keep this wide enough for visibility */
+    margin: 0 10px; /* Increased margin for better spacing */
     text-align: center;
     box-sizing: border-box; /* Ensures that padding/margins count within width */
 }
