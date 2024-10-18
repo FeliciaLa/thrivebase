@@ -27,7 +27,7 @@ header {
 }
 
 .logo {
-    height: 40px; /* Original height for the logo */
+    height: 60px; /* Increased height for a larger logo */
     width: auto; /* Maintain aspect ratio */
     margin: 0; /* Remove default margin */
 }
