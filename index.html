@@ -69,28 +69,32 @@
     <script>
         const carousel = document.getElementById('carousel');
         let scrollPosition = 0;
-
+    
         function moveCarousel(direction) {
             const itemWidth = 320; // Width of each carousel item including margin
-            const maxScrollPosition = -(carousel.children.length - 3) * itemWidth; // Adjust for the number of items
-
+            const maxScrollPosition = -(carousel.children.length - 1) * itemWidth; // Maximum scroll position
+    
+            // Update the scroll position
             scrollPosition += direction * itemWidth;
-
+    
             // Ensure scroll position stays within bounds
             if (scrollPosition > 0) {
-                scrollPosition = maxScrollPosition;
+                scrollPosition = 0; // Prevent moving beyond the first item
             } else if (scrollPosition < maxScrollPosition) {
-                scrollPosition = 0;
+                scrollPosition = maxScrollPosition; // Prevent moving beyond the last item
             }
-
+    
+            // Apply the transformation
             carousel.style.transform = `translateX(${scrollPosition}px)`;
         }
-
+    
         // Set initial scroll position to show the first item when the page loads
         document.addEventListener('DOMContentLoaded', () => {
+            scrollPosition = 0; // Start at the first item
             carousel.style.transform = `translateX(${scrollPosition}px)`;
         });
     </script>
+    
 
 </body>
 </html>
