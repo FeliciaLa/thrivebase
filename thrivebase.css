@@ -4,6 +4,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column; /* Make the body a column flex container */
+    min-height: 100vh; /* Ensure it fills the full height of the viewport */
 }
 
 /* Header styles */
@@ -23,10 +26,11 @@ header h1 {
 /* Explanation section */
 .explanation {
     text-align: center;
-    margin: 20px;
+    margin: 20px auto; /* Center the explanation */
     padding: 0 5%; /* Adjusted padding for better spacing */
     font-size: 1.2em;
     color: #333;
+    flex: 1; /* Allow this section to grow and fill space */
 }
 
 .explanation p {
@@ -38,7 +42,7 @@ header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 40px auto;
+    margin: 40px auto; /* Space above and below the carousel */
     position: relative;
     width: 100%; /* Set to 100% to fill the full width */
     max-width: 1200px; /* Optional: set a max width for larger screens */
@@ -46,6 +50,7 @@ header h1 {
     background-color: #f0f0f0;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 2; /* Allow the carousel to grow and fill space */
 }
 
 /* Carousel */
@@ -58,8 +63,8 @@ header h1 {
 
 /* Carousel item */
 .carousel-item {
-    min-width: 300px; /* Keep this wide enough for visibility */
-    margin: 0 10px; /* Increased margin for better spacing */
+    min-width: 280px; /* Width for items */
+    margin: 0 10px; /* Increased margin for spacing */
     text-align: center;
     box-sizing: border-box; /* Ensures that padding/margins count within width */
 }
