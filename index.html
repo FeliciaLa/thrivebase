@@ -89,42 +89,40 @@
         let items = Array.from(carousel.children);
         const itemWidth = 320; // Width of each carousel item including margin
         let scrollPosition = -itemWidth; // Initial scroll position to account for the cloned item
-    
+
         // Clone first and last items to create an infinite loop effect
         const firstClone = items[0].cloneNode(true);
         const lastClone = items[items.length - 1].cloneNode(true);
         carousel.appendChild(firstClone);
         carousel.insertBefore(lastClone, items[0]);
-    
+
         items = Array.from(carousel.children); // Refresh item list after adding clones
-    
+
         function moveCarousel(direction) {
             scrollPosition -= direction * itemWidth; // Move right when direction is positive
-    
+
             // Apply the transformation
             carousel.style.transition = 'transform 0.5s ease';
             carousel.style.transform = `translateX(${scrollPosition}px)`;
-    
+
             // Check boundaries and reset if necessary
             setTimeout(() => {
                 if (scrollPosition <= -(items.length - 1) * itemWidth) {
                     scrollPosition = -itemWidth; // Reset to the first cloned item
-                    carousel.style.transition = 'none';
+                    carousel.style.transition = 'none'; // No transition for instant jump
                     carousel.style.transform = `translateX(${scrollPosition}px)`;
                 } else if (scrollPosition >= 0) {
                     scrollPosition = -(items.length - 2) * itemWidth; // Reset to the last cloned item
-                    carousel.style.transition = 'none';
+                    carousel.style.transition = 'none'; // No transition for instant jump
                     carousel.style.transform = `translateX(${scrollPosition}px)`;
                 }
             }, 500);
         }
-    
+
         // Set initial scroll position to show the first actual item
         document.addEventListener('DOMContentLoaded', () => {
             carousel.style.transform = `translateX(${scrollPosition}px)`;
         });
     </script>
-    
-
 </body>
 </html>
