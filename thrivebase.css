@@ -11,16 +11,56 @@ body {
 
 /* Header styles */
 header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 20px;
+    background-color: #4CAF50; /* Header background color */
+    color: white; /* Header text color */
+    text-align: center; /* Center the header text */
+    padding: 20px; /* Padding around the header */
     width: 100%; /* Ensures header fills full width */
 }
 
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
+.header-content {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center items vertically */
+    max-width: 1200px; /* Center the header content */
+    margin: 0 auto; /* Center the content horizontally */
+}
+
+.logo {
+    font-size: 2em; /* Logo font size */
+    margin: 0; /* Remove default margin */
+}
+
+.nav-menu ul {
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Use flexbox for horizontal layout */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.nav-menu li {
+    margin: 0 15px; /* Space between menu items */
+}
+
+.nav-menu a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.nav-menu a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.header-actions .cta-button {
+    background-color: white; /* Button background color */
+    color: #4CAF50; /* Button text color */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+}
+
+.header-actions .cta-button:hover {
+    background-color: #ddd; /* Light gray on hover */
 }
 
 /* Explanation section */
@@ -50,7 +90,6 @@ header h1 {
     background-color: #f0f0f0;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    flex: 2; /* Allow the carousel to grow and fill space */
 }
 
 /* Carousel */
@@ -63,8 +102,8 @@ header h1 {
 
 /* Carousel item */
 .carousel-item {
-    min-width: 280px; /* Width for items */
-    margin: 0 10px; /* Increased margin for spacing */
+    min-width: 300px; /* Keep this wide enough for visibility */
+    margin: 0 10px; /* Increased margin for better spacing */
     text-align: center;
     box-sizing: border-box; /* Ensures that padding/margins count within width */
 }
@@ -112,6 +151,49 @@ header h1 {
 /* Hover effect for arrows */
 .arrow:hover {
     background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Footer styles */
+footer {
+    background-color: #4CAF50; /* Match with header color */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline; /* Optional hover effect */
+}
+
+.social-media {
+    margin-top: 10px;
+}
+
+.social-media a {
+    color: white;
+    margin: 0 10px;
 }
 
 /* Media Queries for Responsiveness (Optional) */
