@@ -74,17 +74,22 @@
             const itemWidth = 320; // Width of each carousel item including margin
             const maxScrollPosition = -(carousel.children.length - 3) * itemWidth; // Adjust for the number of items
 
-            scrollPosition -= direction * itemWidth;
+            scrollPosition += direction * itemWidth;
 
             // Ensure scroll position stays within bounds
             if (scrollPosition > 0) {
-                scrollPosition = 0;
-            } else if (scrollPosition < maxScrollPosition) {
                 scrollPosition = maxScrollPosition;
+            } else if (scrollPosition < maxScrollPosition) {
+                scrollPosition = 0;
             }
 
             carousel.style.transform = `translateX(${scrollPosition}px)`;
         }
+
+        // Set initial scroll position to show the first item when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            carousel.style.transform = `translateX(${scrollPosition}px)`;
+        });
     </script>
 
 </body>
