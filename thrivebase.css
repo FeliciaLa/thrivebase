@@ -50,17 +50,17 @@ header h1 {
 /* Carousel */
 .carousel {
     display: flex;
-    transition: transform 0.3s ease;
-    padding: 0; /* Ensure no padding hides the first item */
-    margin-left: 0; /* Make sure margin doesn’t hide the first item */
+    transition: transform 0.5s ease;
+    padding: 0;
+    margin-left: 0;
 }
 
 /* Carousel item */
 .carousel-item {
     min-width: 300px;
-    margin: 0 10px; /* Adjust this if needed for spacing */
+    margin: 0 10px;
     text-align: center;
-    box-sizing: border-box; /* Makes padding/margins count within the width */
+    box-sizing: border-box;
 }
 
 .carousel-item img {

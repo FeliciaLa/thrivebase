@@ -23,7 +23,7 @@
 
     <!-- Carousel Section -->
     <div class="carousel-container">
-        <button class="arrow left-arrow" onclick="moveCarousel(1)">&#10094;</button> <!-- Left Arrow -->
+        <button class="arrow left-arrow" onclick="moveCarousel(-1)">&#10094;</button> <!-- Left Arrow -->
         <div class="carousel" id="carousel">
             <div class="carousel-item">
                 <a href="sleep-enhancement.html">
@@ -57,7 +57,7 @@
                 </a>
             </div>
         </div>
-        <button class="arrow right-arrow" onclick="moveCarousel(-1)">&#10095;</button> <!-- Right Arrow -->
+        <button class="arrow right-arrow" onclick="moveCarousel(1)">&#10095;</button> <!-- Right Arrow -->
     </div>
 
     <!-- Footer Section -->
@@ -68,30 +68,39 @@
     <!-- JavaScript for Carousel -->
     <script>
         const carousel = document.getElementById('carousel');
+        const items = Array.from(carousel.children);
         const itemWidth = 320; // Width of each carousel item including margin
         let scrollPosition = 0;
 
-        function moveCarousel(direction) {
-            const maxScrollPosition = -(carousel.children.length - 3) * itemWidth; // Adjust for the number of items
+        // Clone first and last items to create an infinite loop effect
+        carousel.appendChild(items[0].cloneNode(true));
+        carousel.insertBefore(items[items.length - 1].cloneNode(true), items[0]);
 
-            // Update the scroll position
+        function moveCarousel(direction) {
             scrollPosition += direction * itemWidth;
 
-            // Ensure scroll position stays within bounds
-            if (scrollPosition > 0) {
-                scrollPosition = 0; // Prevent moving beyond the first item
-            } else if (scrollPosition < maxScrollPosition) {
-                scrollPosition = maxScrollPosition; // Prevent moving beyond the last item
-            }
-
             // Apply the transformation
+            carousel.style.transition = 'transform 0.5s ease';
             carousel.style.transform = `translateX(${scrollPosition}px)`;
+
+            // Check boundaries and reset if necessary
+            setTimeout(() => {
+                if (scrollPosition <= -(items.length * itemWidth)) {
+                    scrollPosition = 0; // Reset to the beginning
+                    carousel.style.transition = 'none';
+                    carousel.style.transform = `translateX(0px)`;
+                } else if (scrollPosition >= itemWidth) {
+                    scrollPosition = -(items.length - 1) * itemWidth;
+                    carousel.style.transition = 'none';
+                    carousel.style.transform = `translateX(${scrollPosition}px)`;
+                }
+            }, 500);
         }
 
-        // Set initial scroll position to show the first item when the page loads
+        // Set initial scroll position to show the first actual item
         document.addEventListener('DOMContentLoaded', () => {
-            scrollPosition = 0; // Reset to the start
-            carousel.style.transform = `translateX(0px)`; // Set transform to 0 explicitly
+            scrollPosition = -itemWidth; // Start at the first cloned item
+            carousel.style.transform = `translateX(${scrollPosition}px)`;
         });
     </script>
 
