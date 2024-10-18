@@ -20,14 +20,14 @@ header {
 
 .header-content {
     display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
+    justify-content: space-between; /* Space between elements */
+    align-items: center; /* Center items vertically */
     max-width: 1200px; /* Center the header content */
     margin: 0 auto; /* Center the content horizontally */
 }
 
 .logo {
-    height: 70px; /* Increased height for a larger logo */
+    height: 40px; /* Original height for the logo */
     width: auto; /* Maintain aspect ratio */
     margin: 0; /* Remove default margin */
 }
