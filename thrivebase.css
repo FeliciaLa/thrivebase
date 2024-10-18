@@ -27,7 +27,8 @@ header {
 }
 
 .logo {
-    font-size: 2em; /* Logo font size */
+    max-width: 150px; /* Set maximum width for the logo */
+    height: auto; /* Maintain aspect ratio */
     margin: 0; /* Remove default margin */
 }
 
