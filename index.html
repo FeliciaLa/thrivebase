@@ -23,13 +23,13 @@
 
     <!-- Carousel Section -->
     <div class="carousel-container">
-        <button class="arrow left-arrow" onclick="moveCarousel(-1)">&#10094;</button>
+        <button class="arrow left-arrow" onclick="moveCarousel(1)">&#10094;</button> <!-- Modified to move right -->
         <div class="carousel" id="carousel">
-            <!-- Carousel Items with Clickable Links -->
             <div class="carousel-item">
-                <a href="https://example.com/productivity-resources">
-                    <img src="https://via.placeholder.com/300x200.png?text=List+1" alt="Productivity Resources">
-                    <h3>Productivity Resources</h3>
+                <a href="sleep-enhancement.html">
+                    <img src="https://yourimageurl.com/sleep.jpg" alt="Sleep Enhancement">
+                    <h3>Sleep Enhancement</h3>
+                    <p>Optimize your nights for better days with the best resources on sleep.</p>
                 </a>
             </div>
             <div class="carousel-item">
@@ -57,7 +57,7 @@
                 </a>
             </div>
         </div>
-        <button class="arrow right-arrow" onclick="moveCarousel(1)">&#10095;</button>
+        <button class="arrow right-arrow" onclick="moveCarousel(-1)">&#10095;</button> <!-- Modified to move left -->
     </div>
 
     <!-- Footer Section -->
@@ -71,16 +71,21 @@
         let scrollPosition = 0;
 
         function moveCarousel(direction) {
-            const itemWidth = 320; // width of each carousel item including margin
-            const maxScrollPosition = -(carousel.children.length - 3) * itemWidth; // Only allow scrolling if there are more than 3 items
+            const itemWidth = 320; // Width of each carousel item including margin
+            const maxScrollPosition = -(carousel.children.length - 3) * itemWidth; // Adjust for the number of items
 
-            scrollPosition += direction * itemWidth;
+            scrollPosition -= direction * itemWidth;
 
             // Ensure scroll position stays within bounds
             if (scrollPosition > 0) {
                 scrollPosition = 0;
             } else if (scrollPosition < maxScrollPosition) {
                 scrollPosition = maxScrollPosition;
-   
-}
-}
+            }
+
+            carousel.style.transform = `translateX(${scrollPosition}px)`;
+        }
+    </script>
+
+</body>
+</html>
